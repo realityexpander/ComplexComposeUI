@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -28,6 +29,7 @@ import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,20 +45,22 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.core.graphics.toColorInt
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.CamText
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedSurface
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.RecIndicatorElement
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.CamText
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.PtzOutlinedSurface
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.RecIndicatorElement
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.PtzUiMode
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.TempBar
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.fontScale
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.LocalOnErrorMessage
+import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 
 @Composable
 fun ZoomAndTempControls(
@@ -357,6 +361,108 @@ fun ZoomAndTempControls(
                         }
                     )
                 }
+            }
+        }
+    }
+}
+
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun ZoomAndTempControlsPhoneRGBPreview() {
+    PtzCameraTheme {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            ZoomAndTempControls(
+                uiMode = PtzUiMode.RGB,
+                zoomPercentage = 50f,
+                tempBar = TempBar(),
+                onZoomIn = { /* No-op */ },
+                onZoomOut = { /* No-op */ },
+                onZoomSliderChange = { /* No-op */ },
+                onTakePhotoClick = { /* No-op */ },
+                onMoreSettingsClick = { /* No-op */ }
+            )
+        }
+    }
+}
+
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun ZoomAndTempControlsPhoneThermalPreview() {
+    PtzCameraTheme {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            ZoomAndTempControls(
+                uiMode = PtzUiMode.Thermal,
+                zoomPercentage = 50f,
+                tempBar = TempBar(
+                    referenceMarks = listOf("100°C", "80°C", "60°C", "40°C", "20°C", "0°C"),
+                    colorPalette = listOf("FF0000", "00FF00", "0000FF")
+                ),
+                onZoomIn = { /* No-op */ },
+                onZoomOut = { /* No-op */ },
+                onZoomSliderChange = { /* No-op */ },
+                onTakePhotoClick = { /* No-op */ },
+                onMoreSettingsClick = { /* No-op */ }
+            )
+        }
+    }
+}
+
+@Preview(device = "id:Nexus 9")
+@Composable
+fun ZoomAndTempControlsTabletThermalPreview() {
+    PtzCameraTheme {
+        CompositionLocalProvider(LocalIsTablet provides true) {
+
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                ZoomAndTempControls(
+                    uiMode = PtzUiMode.RGB,
+                    zoomPercentage = 50f,
+                    tempBar = TempBar(
+                        referenceMarks = listOf("0°C", "20°C", "40°C"),
+                        colorPalette = listOf("FF0000", "00FF00", "0000FF")
+                    ),
+                    onZoomIn = { /* No-op */ },
+                    onZoomOut = { /* No-op */ },
+                    onZoomSliderChange = { /* No-op */ },
+                    onTakePhotoClick = { /* No-op */ },
+                    onMoreSettingsClick = { /* No-op */ },
+                )
+            }
+        }
+    }
+}
+
+@Preview(device = "id:Nexus 9")
+@Composable
+fun ZoomAndTempControlsTabletRGBPreview() {
+    PtzCameraTheme {
+        CompositionLocalProvider(LocalIsTablet provides true) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                ZoomAndTempControls(
+                    uiMode = PtzUiMode.Thermal,
+                    zoomPercentage = 50f,
+                    tempBar = TempBar(
+                        referenceMarks = listOf("100°C", "80°C", "60°C", "40°C", "20°C", "0°C"),
+                        colorPalette = listOf("FF0000", "00FF00", "0000FF")
+                    ),
+                    onZoomIn = { /* No-op */ },
+                    onZoomOut = { /* No-op */ },
+                    onZoomSliderChange = { /* No-op */ },
+                    onTakePhotoClick = { /* No-op */ },
+                    onMoreSettingsClick = { /* No-op */ }
+                )
             }
         }
     }

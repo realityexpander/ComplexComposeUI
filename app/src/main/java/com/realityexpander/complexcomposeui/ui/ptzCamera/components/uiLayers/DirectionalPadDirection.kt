@@ -13,10 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.CenterCrosshair
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.DirectionalButton
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.CenterCrosshair
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.DirectionalButton
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
+import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 
 sealed class DirectionalPadDirection {
     object Up : DirectionalPadDirection()
@@ -194,6 +196,21 @@ fun DirectionalPad(
                     onClick = { onDirectionClick(DirectionalPadDirection.DownRight) }
                 )
             }
+        }
+    }
+}
+
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun DirectionalPadPreview() {
+    PtzCameraTheme {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            DirectionalPad(
+                onDirectionClick = { }
+            )
         }
     }
 }

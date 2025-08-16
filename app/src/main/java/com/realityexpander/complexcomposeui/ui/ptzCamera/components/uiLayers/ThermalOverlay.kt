@@ -20,8 +20,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempSpotElement
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempZoneElement
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.TempSpotElement
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.TempZoneElement
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.extractTempZoneItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.samplePtzUiStateStreamData
@@ -48,11 +48,7 @@ data class PercentOffset(
 )
 
 // Temp Measurement layer: TempSpots and TempZones
-@Preview(showBackground = true,
-    backgroundColor = 0xFF1A1A1A,
-    device = "spec:width=580dp,height=500dp,dpi=220",
-    showSystemUi = false
-)
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
 @Composable
 fun ThermalOverlayPreview(
     tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),

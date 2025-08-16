@@ -1,4 +1,4 @@
-package com.realityexpander.complexcomposeui.ui.ptzCamera.components
+package com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background

@@ -1,4 +1,4 @@
-package com.realityexpander.complexcomposeui.ui.ptzCamera.components
+package com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements
 
 import android.annotation.SuppressLint
 import android.graphics.Matrix

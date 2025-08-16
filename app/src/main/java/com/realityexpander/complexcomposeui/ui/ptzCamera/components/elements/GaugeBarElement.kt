@@ -1,4 +1,4 @@
-package com.realityexpander.complexcomposeui.ui.ptzCamera.components
+package com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.GaugeBarItem
+import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 
 @Composable
 fun GaugeBarElement(
@@ -79,5 +81,29 @@ fun GaugeRowElement(
             content = {
                 GaugeBarClusterElement(gaugeBar)
             })
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF2F2F2F,
+    device = "spec:width=800dp,height=500dp,dpi=320,orientation=portrait"
+)
+@Composable
+fun GaugeRowPreview(){
+    PtzCameraTheme {
+        Column(
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            GaugeRowElement(
+                gaugeBar = listOf(
+                    GaugeBarItem("1", "RGB", "on"),
+                    GaugeBarItem("2", "Thermal", "off"),
+                    GaugeBarItem("3", "Distance", "100m"),
+                    GaugeBarItem("4", "FOV", "60°")
+                ),
+                gaugeClusterWidthFraction = 0.75f
+            )
+        }
     }
 }

@@ -134,13 +134,41 @@ fun samplePtzUiStateStreamData(): PtzCameraUiStateStreamMsg {
                 max = "1025",
                 min = "54",
                 referenceMarks = listOf("1025F", "850F", "575F", "260F", "54F"),
-                colorPalette = listOf("FFFFFF", "FDF6DD", "F57F17", "E29b21", "64af30", "1761c7",  "1474d4", "000000")
+                colorPalette = listOf(
+                    "FFFFFF",
+                    "FDF6DD",
+                    "F57F17",
+                    "E29b21",
+                    "64af30",
+                    "1761c7",
+                    "1474d4",
+                    "000000"
+                )
             ),
             tempSpots = listOf(
+                // Leave to test alignment
+//                TempSpot(
+//                    id = "1",
+//                    resolution = ScreenResolution(1080, 720), // resolution of c3 video area
+//                    position = Position(240, 360), // horizontal, vertical pixel
+//                    temp = "52.0F"
+//                ),
+//                TempSpot(
+//                    id = "2",
+//                    resolution = ScreenResolution(1080, 720), // resolution of c3 video area
+//                    position = Position(540, 150), // horizontal, vertical pixel
+//                    temp = "78.3F"
+//                ),
+//                TempSpot(
+//                    id = "3",
+//                    resolution = ScreenResolution(1080, 720), // resolution of c3 video area
+//                    position = Position(540, 540), // horizontal, vertical pixel
+//                    temp = "98.3F"
+//                ),
                 TempSpot(
                     id = "1",
                     resolution = ScreenResolution(1080, 720), // resolution of c3 video area
-                    position = Position(240, 360), // horizontal, vertical pixel
+                    position = Position(240, 460), // horizontal, vertical pixel
                     temp = "52.0F"
                 ),
                 TempSpot(
@@ -157,12 +185,33 @@ fun samplePtzUiStateStreamData(): PtzCameraUiStateStreamMsg {
                 ),
             ),
             tempZones = listOf(
+                // Leave to test alignment
+//                TempZone(
+//                    id = "1",
+//                    resolution = ScreenResolution(1080, 720),
+//                    topLeftCorner = Position(540, 360), // CENTER OF IMAGE
+////                    topLeftCorner = Position(440, 420),
+//                    bottomRightCorner = Position(900, 700),
+//                    minTemp = "52.0F",
+//                    maxTemp = "75.0F",
+//                    avgTemp = "63.5F"
+//                ),
+//                TempZone(
+//                    id = "2",
+//                    resolution = ScreenResolution(1080, 720),
+//                    topLeftCorner = Position(100, 100),
+////                    topLeftCorner = Position(440, 420),
+//                    bottomRightCorner = Position(540, 360),
+//                    minTemp = "52.0F",
+//                    maxTemp = "75.0F",
+//                    avgTemp = "63.5F"
+//                ),
                 TempZone(
                     id = "1",
                     resolution = ScreenResolution(1080, 720),
-                    topLeftCorner = Position(540, 360), // CENTER OF IMAGE
+                    topLeftCorner = Position(640, 360), // CENTER OF IMAGE
 //                    topLeftCorner = Position(440, 420),
-                    bottomRightCorner = Position(900, 700),
+                    bottomRightCorner = Position(900, 600),
                     minTemp = "52.0F",
                     maxTemp = "75.0F",
                     avgTemp = "63.5F"
@@ -172,7 +221,7 @@ fun samplePtzUiStateStreamData(): PtzCameraUiStateStreamMsg {
                     resolution = ScreenResolution(1080, 720),
                     topLeftCorner = Position(100, 100),
 //                    topLeftCorner = Position(440, 420),
-                    bottomRightCorner = Position(540, 360),
+                    bottomRightCorner = Position(440, 360),
                     minTemp = "52.0F",
                     maxTemp = "75.0F",
                     avgTemp = "63.5F"

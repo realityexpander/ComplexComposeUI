@@ -27,13 +27,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.CamText
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.GaugeRowElement
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.IconComponent
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedButton
-import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedSurface
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.CamText
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.GaugeRowElement
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.IconComponent
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.PtzOutlinedButton
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.elements.PtzOutlinedSurface
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.GaugeBarItem
-import com.realityexpander.complexcomposeui.ui.theme.AppDimens
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.fontScale
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
@@ -228,7 +227,7 @@ fun BottomRowControls(
                         CamText(
                             timeDate,
                             fontSize = MaterialTheme.typography.displayMedium.fontSize,
-                            fontScale = AppDimens.fontScale,
+                            fontScale = fontScale,
                         )
                     }
                 },
