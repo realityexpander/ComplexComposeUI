@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 private fun MainActivity.calculateScreenSize(): Boolean {
-    // Calculate screen size & class
+    // Calculate screen size & find class
     val (widthDp, heightDp) = if (Build.VERSION.SDK_INT < 30) {
         val metrics = resources.displayMetrics
         val widthDp = metrics.widthPixels / metrics.density
