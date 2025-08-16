@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.GaugeBarItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.GaugeBarItem
 
 @Composable
 fun GaugeBarElement(

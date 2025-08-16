@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.realityexpander.complexcomposeui.R
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.PtzUiMode
 
 @Composable
 fun BackgroundImage(ptzUiMode: PtzUiMode) {

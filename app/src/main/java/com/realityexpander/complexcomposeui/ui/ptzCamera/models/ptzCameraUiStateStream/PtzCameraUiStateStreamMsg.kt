@@ -1,6 +1,6 @@
 @file:Suppress("PropertyName")
 
-package com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream
+package com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream
 
 import androidx.annotation.Keep
 import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.PercentOffset
