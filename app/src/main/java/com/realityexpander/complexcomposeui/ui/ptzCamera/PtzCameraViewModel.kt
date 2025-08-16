@@ -61,8 +61,8 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
         msg.msg.timeDate
     }.stateIn(viewModelScope, SharingStarted.Eagerly, "")
 
-    private val _uiErrorMessages = MutableSharedFlow<String?>()
-    val uiErrorMessages = _uiErrorMessages.asSharedFlow()
+    private val _snackBarMessages = MutableSharedFlow<String?>()
+    val snackBarMessages = _snackBarMessages.asSharedFlow()
 
     init {
         // Start Clock tick
@@ -85,14 +85,14 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun onDirectionClick(direction: DirectionalPadDirection) {
-        // Handle click
+        // Send Command to PTZ Camera
         CommsInterfaceWebRtc.instance
             .sendJson(
                 "{\"direction\":\"$direction\"}",
                 DataChannels.MANUAL_CONTROL
             )
 
-        onErrorMessage("onDirectionClick: ${direction.javaClass.simpleName}")
+        onSnackBarMessage("onDirectionClick: ${direction.javaClass.simpleName}")
     }
 
     fun onZoomIn() {
@@ -172,10 +172,10 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     val counter = MutableStateFlow(0)
-    fun onErrorMessage(message: String) {
+    fun onSnackBarMessage(message: String) {
         viewModelScope.launch {
             counter.value++ // creates new value to force emission
-            _uiErrorMessages.emit(message + ", id:" + counter.value)
+            _snackBarMessages.emit(message + ", msg id:" + counter.value)
         }
     }
 }

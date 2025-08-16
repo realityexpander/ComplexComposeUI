@@ -41,22 +41,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        // Calculate screen size & class
-        val (widthDp, heightDp) = if (Build.VERSION.SDK_INT < 30) {
-            val metrics = resources.displayMetrics
-            val widthDp = metrics.widthPixels / metrics.density
-            val heightDp = metrics.heightPixels / metrics.density
-            Pair(widthDp, heightDp)
-        } else {
-            val windowMetrics = windowManager.currentWindowMetrics
-            val bounds = windowMetrics.bounds
-            val widthDp = bounds.width() / resources.displayMetrics.density
-            val heightDp = bounds.height() / resources.displayMetrics.density
-            Pair(widthDp, heightDp)
-        }
-        val windowSizeInfo = WindowSizeClass.calculateFromSize(DpSize(widthDp.dp, heightDp.dp))
-        val isTablet = windowSizeInfo.heightSizeClass == WindowHeightSizeClass.Expanded
+        val isTablet = calculateScreenSize()
 
         setContent {
             val snackbarHostState = remember { SnackbarHostState() }
@@ -68,16 +53,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
                 ) { innerPadding ->
-                    CollectUiErrorMessages(viewModel, scope, snackbarHostState)
+                    CollectSnackBarMessages(viewModel, scope, snackbarHostState)
 
                     PtzCamera(
                         modifier = Modifier.padding(innerPadding),
                         viewModel = viewModel,
-                        onErrorMessage = { message ->
-                            scope.launch {
-                                snackbarHostState.showSnackbar(message)
-                            }
-                        },
                         isTablet = isTablet
                     )
                 }
@@ -86,17 +66,38 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+private fun MainActivity.calculateScreenSize(): Boolean {
+    // Calculate screen size & class
+    val (widthDp, heightDp) = if (Build.VERSION.SDK_INT < 30) {
+        val metrics = resources.displayMetrics
+        val widthDp = metrics.widthPixels / metrics.density
+        val heightDp = metrics.heightPixels / metrics.density
+        Pair(widthDp, heightDp)
+    } else {
+        val windowMetrics = windowManager.currentWindowMetrics
+        val bounds = windowMetrics.bounds
+        val widthDp = bounds.width() / resources.displayMetrics.density
+        val heightDp = bounds.height() / resources.displayMetrics.density
+        Pair(widthDp, heightDp)
+    }
+    val windowSizeInfo = WindowSizeClass.calculateFromSize(DpSize(widthDp.dp, heightDp.dp))
+    val isTablet = windowSizeInfo.heightSizeClass == WindowHeightSizeClass.Expanded
+
+    return isTablet
+}
+
 @Composable
-private fun CollectUiErrorMessages(
+private fun CollectSnackBarMessages(
     viewModel: PtzCameraViewModel,
     scope: CoroutineScope,
     snackbarHostState: SnackbarHostState
 
 ) {
     // Collect error messages from ViewModel
-    val errorMessage by viewModel.uiErrorMessages.collectAsState(null)
-    LaunchedEffect(errorMessage) {
-        errorMessage?.let { message ->
+    val snackBarMessage by viewModel.snackBarMessages.collectAsState(null)
+    LaunchedEffect(snackBarMessage) {
+        snackBarMessage?.let { message ->
             scope.launch {
                 snackbarHostState.showSnackbar(message)
             }

@@ -35,7 +35,6 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.The
 fun PtzCamera(
     modifier: Modifier = Modifier,
     viewModel: PtzCameraViewModel = viewModel(),
-    onErrorMessage: ((String) -> Unit)? = null,
     isTablet: Boolean = false
 ) {
     val uiMode by viewModel.ptzUiMode.collectAsState()
@@ -66,9 +65,7 @@ fun PtzCamera(
         onZoomSliderChange = viewModel::onZoomSliderChange,
         onTakePhotoClick = viewModel::onTakePhotoClick,
         onMoreSettingsClick = viewModel::onMoreSettingsClick,
-        onErrorMessage = onErrorMessage?.let {
-                onErrorMessage
-            } ?: viewModel::onErrorMessage,
+        onSnackBarMessage = viewModel::onSnackBarMessage,
         isTablet = isTablet,
     )
 }
@@ -93,7 +90,7 @@ fun PtzCameraUi(
     onZoomSliderChange: (Float) -> Unit = {},
     onTakePhotoClick: () -> Unit = {},
     onMoreSettingsClick: () -> Unit = {},
-    onErrorMessage: (String) -> Unit = {}, // shows preview background in @Previews
+    onSnackBarMessage: (String) -> Unit = {}, // shows preview background in @Previews
     isTablet: Boolean = false,
     isPreviewImageVisible: Boolean = true,
     isDebugInfoVisible: Boolean = false,
@@ -102,7 +99,7 @@ fun PtzCameraUi(
 
     CompositionLocalProvider(
         LocalIsTablet provides isTablet,
-        LocalOnErrorMessage provides onErrorMessage
+        LocalOnErrorMessage provides onSnackBarMessage
     ) {
         PtzCameraTheme {
             Box(
