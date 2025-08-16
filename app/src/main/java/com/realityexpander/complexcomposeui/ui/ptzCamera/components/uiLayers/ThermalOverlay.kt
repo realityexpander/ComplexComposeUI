@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempSpotElement
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempZoneElement
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempSpotItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
 
 data class TempSpotItem(
     val measurementId: String = "",

@@ -27,10 +27,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.realityexpander.complexcomposeui.ui.ptzCamera.PtzCamera
 import com.realityexpander.complexcomposeui.ui.ptzCamera.PtzCameraUi
 import com.realityexpander.complexcomposeui.ui.ptzCamera.PtzCameraViewModel
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.PtzUiMode
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempSpotItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
 import com.realityexpander.complexcomposeui.ui.theme.ComplexComposeUITheme
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 import kotlinx.coroutines.CoroutineScope

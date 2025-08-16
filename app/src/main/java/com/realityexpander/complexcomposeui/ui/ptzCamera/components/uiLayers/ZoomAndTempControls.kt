@@ -52,8 +52,8 @@ import androidx.core.graphics.toColorInt
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.CamText
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedSurface
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.RecIndicatorElement
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.PtzUiMode
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.TempBar
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.TempBar
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.fontScale
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.LocalOnErrorMessage

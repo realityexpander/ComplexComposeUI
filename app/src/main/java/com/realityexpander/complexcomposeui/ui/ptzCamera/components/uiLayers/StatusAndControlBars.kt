@@ -32,7 +32,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.components.GaugeRowElem
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.IconComponent
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedButton
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedSurface
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.GaugeBarItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.GaugeBarItem
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.fontScale
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet

@@ -1,6 +1,6 @@
 @file:Suppress("PropertyName")
 
-package com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream
+package com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream
 
 import androidx.annotation.Keep
 import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.PercentOffset
@@ -134,7 +134,7 @@ fun sampleNSUiStateStreamData(): PtzCameraUiStateStreamMsg {
                 max = "1025",
                 min = "54",
                 referenceMarks = listOf("1025F", "850F", "575F", "260F", "54F"),
-                colorPalette = listOf("FDF6DD", "F57F17", "AD039A", "240088", "000000")
+                colorPalette = listOf("FFFFFF", "FDF6DD", "F57F17", "E29b21", "64af30", "1761c7",  "1474d4", "000000")
             ),
             tempSpots = listOf(
                 TempSpot(

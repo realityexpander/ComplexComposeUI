@@ -3,12 +3,13 @@ package com.realityexpander.complexcomposeui.ui.ptzCamera
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.PtzUiMode
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.PtzCameraUiStateStreamMsg
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.TempBar
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempSpotItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzCameraUiStateStreamMsg
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.TempBar
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.UiMode
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
 import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -20,7 +21,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.text.DateFormat.getDateTimeInstance
 import java.util.Date
 
@@ -92,16 +92,16 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
                 DataChannels.MANUAL_CONTROL
             )
 
-        onErrorMessage("onDirectionClick: $direction")
+        onErrorMessage("onDirectionClick: ${direction.javaClass.simpleName}")
     }
 
     fun onZoomIn() {
-                // Handle zoom in
-                CommsInterfaceWebRtc.instance
-                    .sendJson(
-                        "{\"zoom\":\"in\"}",
-                        DataChannels.MANUAL_CONTROL
-                    )
+        // Handle zoom in
+        CommsInterfaceWebRtc.instance
+            .sendJson(
+                "{\"zoom\":\"in\"}",
+                DataChannels.MANUAL_CONTROL
+            )
     }
 
     fun onZoomOut() {
@@ -147,6 +147,26 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
                 "{\"toggleUiMode\":\"true\"}",
                 DataChannels.MANUAL_CONTROL
             )
+
+        // Toggle UI mode
+        viewModelScope.launch {
+            _uiStateStreamMsg.value = _uiStateStreamMsg.value.copy(
+                msg = _uiStateStreamMsg.value.msg.copy(
+                    uiMode = UiMode(
+                        if (_uiStateStreamMsg.value.msg.uiMode.id == PtzUiMode.Thermal.id) {
+                            PtzUiMode.RGB.id
+                        } else {
+                            PtzUiMode.Thermal.id
+                        },
+                        if (_uiStateStreamMsg.value.msg.uiMode.id == PtzUiMode.Thermal.id) {
+                            PtzUiMode.RGB.displayName
+                        } else {
+                            PtzUiMode.Thermal.displayName
+                        }
+                    )
+                )
+            )
+        }
     }
 
     fun onSettingsClick() {
