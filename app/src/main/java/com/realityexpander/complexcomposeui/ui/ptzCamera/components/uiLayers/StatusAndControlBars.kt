@@ -106,7 +106,7 @@ fun ColumnScope.TopRowGaugeBars(
                     Modifier
             )
     ) {
-        val gaugeClusterWidthFraction = if (isTablet) .62f else .77f
+        val gaugeClusterWidthFraction = if (isTablet) .62f else .75f
 
         // Top Left Gauges (Temp/Distance/FOV)
         GaugeRowElement(
