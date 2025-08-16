@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="primaryColor">#f57f17</color>
+    <color name="test">#6750a4</color>
+    <color name="primaryLightColor">#ffb04c</color>
+    <color name="primaryDarkColor">#bc5100</color>
+    <color name="secondaryLightColor">#cfcfcf</color>
+    <color name="secondaryDarkColor">#707070</color>
+    <color name="dialog_background">#1E707070</color>
+    <color name="primaryTextColor">#FFFFFF</color>
+    <color name="secondaryTextColor">#fafafa</color>
+
+    <color name="colorPrimary">@color/primaryColor</color>
+    <color name="colorPrimaryDark">@color/primaryDarkColor</color>
+    <color name="colorAccent">#ffec00</color>
+
+    <color name="colorMainBackground">#252525</color>
+    <color name="colorMainBackground_translucent">#DA252525</color>
+    <color name="colorSecondaryBackground">#424242</color>
+
+    <color name="imu_cold">#99ddff</color>
+    <color name="imu_norm">#66ff66</color>
+    <color name="imu_warm">#ffff33</color>
+    <color name="imu_hot">#ff0033</color>
+
+    <color name="ice_cold">#99ddff</color>
+    <color name="ice_norm">#66ff66</color>
+    <color name="ice_hot">#ff0033</color>
+
+    <color name="battery_high">#66ff66</color>
+    <color name="battery_medium">#ffff33</color>
+    <color name="battery_low">#ff0033</color>
+
+    <color name="ice_fuel_ok">#66ff66</color>
+    <color name="ice_fuel_low">#ffff33</color>
+    <color name="ice_fuel_empty">#ff0033</color>
+
+    <color name="red">#ffff0000</color>
+    <color name="red_bg">#ffdd0000</color>
+    <color name="yellow_bg">#ffffff00</color>
+    <color name="divider">#77ffffff</color>
+    <color name="divider_dark">#33ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="gray">#ff888888</color>
+
+    <color name="lightShade">#9A000000</color>
+    <color name="darkShade">#DA000000</color>
+    <color name="map_draw_bg">#1000ff00</color>
+    <color name="map_draw_bg_active">#0800ff00</color>
+
+    <color name="map_panel_shade">#72000000</color>
+    <color name="video_panel_shade">#23000000</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteSelected">@color/colorAccent</color>
+    <color name="colorWhiteDisabled">#66ffffff</color>
+    <color name="colorVerySlightShading">#11ffffff</color>
+    <color name="colorVerySlightSelectedShading">#44550000</color>
+    <color name="colorOffWhite">#aaffffff</color>
+
+    <color name="BarItem_textColor">@android:color/white</color>
+
+    <color name="led_green">#FF00EE00</color>
+    <color name="led_off">#FF565656</color>
+
+    <color name="primaryVariant">#dc7214</color>
+    <color name="primaryDarkVariant">#4e2500</color>
+    <color name="colorAccent_75">#bfffec00</color>
+
+    <color name="color_info">#0298F7</color>
+    <color name="color_warning">#FDCD06</color>
+    <color name="color_error">#FF0000</color>
+    <color name="color_success">#01D83B</color>
+
+    <color name="color_error_dark">#7F0000</color>
+
+    <color name="color_dialog_background">#424242</color>
+    <color name="color_viz_selector">#A6000000</color>
+    <color name="color_setting_panel_background">#505050</color>
+    <color name="brightOverlay">#0DFFFFFF</color>
+
+    <color name="icon_shadow_color">#B3000000</color>
+</resources>
