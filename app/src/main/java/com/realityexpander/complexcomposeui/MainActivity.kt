@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val isTablet = calculateIsTabletFromScreenSize()
+        val isTablet = calculateUiScaleFromScreenSize()
 
         setContent {
             val snackbarHostState = remember { SnackbarHostState() }
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-private fun MainActivity.calculateIsTabletFromScreenSize(): Boolean {
+private fun MainActivity.calculateUiScaleFromScreenSize(): Boolean {
     // Calculate screen size & find class
     val (widthDp, heightDp) = if (Build.VERSION.SDK_INT < 30) {
         val metrics = resources.displayMetrics
