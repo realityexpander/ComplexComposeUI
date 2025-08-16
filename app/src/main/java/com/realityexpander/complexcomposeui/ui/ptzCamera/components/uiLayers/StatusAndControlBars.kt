@@ -33,6 +33,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.components.IconComponen
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedButton
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.PtzOutlinedSurface
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.nsUiStateStream.GaugeBarItem
+import com.realityexpander.complexcomposeui.ui.theme.AppDimens
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.fontScale
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
@@ -196,7 +197,7 @@ fun BottomRowControls(
             PtzOutlinedSurface(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .fillMaxWidth(.6f)
+                    .fillMaxWidth(.62f)
                 ,
                 outlineColor = Color.Transparent,
                 padding = Modifier
@@ -226,11 +227,8 @@ fun BottomRowControls(
                         // Date/Time
                         CamText(
                             timeDate,
-                            fontSize = if (!isTablet)
-                                MaterialTheme.typography.displaySmall.fontSize
-                            else
-                                MaterialTheme.typography.displayMedium.fontSize,
-//                            fontScale = fontScale,
+                            fontSize = MaterialTheme.typography.displayMedium.fontSize,
+                            fontScale = AppDimens.fontScale,
                         )
                     }
                 },

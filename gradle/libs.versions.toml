@@ -1,18 +1,31 @@
 [versions]
+adaptiveAndroid = "1.1.0"
 agp = "8.13.0-alpha04"
+constraintlayoutCompose = "1.0.1"
+graphicsShapes = "1.0.1"
+gson = "2.8.6"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
+kotlinReflect = "1.9.24"
 lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
 composeBom = "2024.09.00"
+material3WindowSizeClassAndroid = "1.2.1"
+materialIconsCoreAndroid = "1.7.8"
+timber = "4.7.1"
+windowCoreAndroid = "1.4.0"
 
 [libraries]
+androidx-compose-adaptive-android = { module = "androidx.compose.material3.adaptive:adaptive-android", version.ref = "adaptiveAndroid" }
+androidx-compose-material-icons-core-android = { module = "androidx.compose.material:material-icons-core-android", version.ref = "materialIconsCoreAndroid" }
+androidx-compose-material-icons-extended-android = { module = "androidx.compose.material:material-icons-extended-android", version.ref = "materialIconsCoreAndroid" }
+androidx-compose-material3-window-size-class1-android = { module = "androidx.compose.material3:material3-window-size-class-android", version.ref = "material3WindowSizeClassAndroid" }
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-graphics-shapes = { module = "androidx.graphics:graphics-shapes-android", version.ref = "graphicsShapes" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -24,6 +37,14 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+androidx-window-core-android = { module = "androidx.window:window-core-android", version.ref = "windowCoreAndroid" }
+
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinReflect" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
