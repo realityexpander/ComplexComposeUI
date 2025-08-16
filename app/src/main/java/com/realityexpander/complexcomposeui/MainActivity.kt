@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Calculate screen size
+        // Calculate screen size & class
         val (widthDp, heightDp) = if (Build.VERSION.SDK_INT < 30) {
             val metrics = resources.displayMetrics
             val widthDp = metrics.widthPixels / metrics.density

@@ -1,33 +1,18 @@
 package com.realityexpander.complexcomposeui.ui.ptzCamera
 
+import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.material3.adaptive.WindowAdaptiveInfo
-import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpSize
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.BackgroundImage
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPad
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.StatusGaugesAndControlBars
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempSpotItem
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempZoneItem
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.ThermalOverlay
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.ZoomAndTempControls
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.GaugeBarItem
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
@@ -38,6 +23,13 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.LocalOnErrorMessage
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
+import com.realityexpander.complexcomposeui.ui.util.DisplayDebugInfo
+import com.realityexpander.complexcomposeui.ui.util.LockScreenOrientation
+import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPad
+import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
+import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempSpotItem
+import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempZoneItem
+import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.ThermalOverlay
 
 @Composable
 fun PtzCamera(
@@ -106,6 +98,7 @@ fun PtzCameraUi(
     isPreviewImageVisible: Boolean = true,
     isDebugInfoVisible: Boolean = false,
 ) {
+    LockScreenOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
 
     CompositionLocalProvider(
         LocalIsTablet provides isTablet,
@@ -160,37 +153,6 @@ fun PtzCameraUi(
                 }
             }
         }
-    }
-}
-
-
-@Composable
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-private fun DisplayDebugInfo(isTablet: Boolean) {
-    Box(
-        // Display screen metrics
-        contentAlignment = Alignment.Center,
-    ) {
-        val windowSizeInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo()
-        val screenSize = WindowSizeClass.calculateFromSize(
-            DpSize(
-                windowSizeInfo.windowSizeClass.minWidthDp.dp,
-                windowSizeInfo.windowSizeClass.minHeightDp.dp
-            )
-        )
-        val windowSizeClassString = windowSizeInfo.windowSizeClass.toString()
-
-        Text(
-            windowSizeClassString +
-                    "\nTablet=" + isTablet +
-                    "\nSize: " + screenSize.toString() +
-                    "\npixelsWidth: " + LocalContext.current.resources.displayMetrics.widthPixels +
-                    "\npixelsHeight: " + LocalContext.current.resources.displayMetrics.heightPixels +
-                    "\npixelsDensity: " + LocalContext.current.resources.displayMetrics.density +
-                    "\npixelsDpi: " + LocalContext.current.resources.displayMetrics.densityDpi ,
-            color = Color.White,
-            fontSize = 30.sp
-        )
     }
 }
 

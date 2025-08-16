@@ -17,6 +17,7 @@ material3WindowSizeClassAndroid = "1.2.1"
 materialIconsCoreAndroid = "1.7.8"
 timber = "4.7.1"
 windowCoreAndroid = "1.4.0"
+appcrawlerPlatform = "0.0.1-alpha03"
 
 [libraries]
 androidx-compose-adaptive-android = { module = "androidx.compose.material3.adaptive:adaptive-android", version.ref = "adaptiveAndroid" }

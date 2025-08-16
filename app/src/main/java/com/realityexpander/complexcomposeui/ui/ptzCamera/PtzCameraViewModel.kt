@@ -186,6 +186,10 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
     }
 }
 
+////////////////////////////////////////////////////
+/// SIMULATE CONTROL COMMANDS TO THE PTZ CAMERA ////
+////////////////////////////////////////////////////
+
 class DataChannels(command: String, manualControl: Any) {
     companion object {
         const val MANUAL_CONTROL = "manual_control"
