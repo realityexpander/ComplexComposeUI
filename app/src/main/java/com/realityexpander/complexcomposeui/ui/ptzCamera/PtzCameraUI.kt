@@ -190,12 +190,7 @@ fun PTZ_Thermal_Phone(
 }
 
 @Preview(
-//    device = "spec:width=${1080}dp,height=${480}dp,dpi=280",
-//    device = "spec:width=${1280}dp,height=${800}dp,dpi=480", // expanded medium
-//    device = "spec:width=1080px,height=2400px,dpi=320,orientation=landscape",
     device = "spec:width=1080px,height=2400px,dpi=480,orientation=landscape", // expanded compact
-//    device = "spec:parent=10.1in WXGA (Tablet), orientation=landscape", // expanded medium
-//    device = "spec:parent=desktop_small,orientation=landscape", // expanded medium
     showBackground = false,
     backgroundColor = 0xFF000000, showSystemUi = false,
 )
@@ -212,9 +207,7 @@ fun PTZ_RGB_Phone(
 }
 
 @Preview(
-//    device = "spec:width=${SCREEN_WIDTH}dp,height=${SCREEN_HEIGHT}dp,dpi=480",
     device = "spec:parent=Nexus 10, orientation=landscape",
-//    device = "spec:parent=desktop_small,orientation=landscape",
     showBackground = true,
     backgroundColor = 0x000000,
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL,
