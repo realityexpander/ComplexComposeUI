@@ -65,11 +65,10 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
     val snackBarMessages = _snackBarMessages.asSharedFlow()
 
     init {
-        // Start Clock tick
-        startClock()
+        startTimeDateClock()
     }
 
-    private fun startClock() {
+    private fun startTimeDateClock() {
         // Start coroutine to update clock every second
         viewModelScope.launch {
             while (true) {
