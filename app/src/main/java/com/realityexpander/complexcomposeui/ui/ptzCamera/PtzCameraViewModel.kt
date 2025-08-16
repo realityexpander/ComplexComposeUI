@@ -158,7 +158,6 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
                         } else {
                             UiMode(PtzUiMode.Thermal.id, PtzUiMode.Thermal.displayName)
                         }
-                    )
                 )
             )
         }
