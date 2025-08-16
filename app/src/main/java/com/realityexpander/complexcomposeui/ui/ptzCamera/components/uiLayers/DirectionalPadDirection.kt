@@ -1,4 +1,4 @@
-package com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers
+package com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

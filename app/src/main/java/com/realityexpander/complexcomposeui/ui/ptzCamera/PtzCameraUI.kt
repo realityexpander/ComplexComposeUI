@@ -25,11 +25,11 @@ import com.realityexpander.complexcomposeui.ui.theme.LocalOnErrorMessage
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 import com.realityexpander.complexcomposeui.ui.util.DisplayDebugInfo
 import com.realityexpander.complexcomposeui.ui.util.LockScreenOrientation
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPad
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempSpotItem
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempZoneItem
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.ThermalOverlay
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.DirectionalPad
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.DirectionalPadDirection
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.TempSpotItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.TempZoneItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.ThermalOverlay
 
 @Composable
 fun PtzCamera(

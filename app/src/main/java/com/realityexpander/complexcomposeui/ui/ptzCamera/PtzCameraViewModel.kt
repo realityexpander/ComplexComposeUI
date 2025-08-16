@@ -10,7 +10,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiState
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.extractTempZoneItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.samplePtzUiStateStreamData
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.DirectionalPadDirection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -152,16 +152,11 @@ class PtzCameraViewModel(application: Application) : AndroidViewModel(applicatio
         viewModelScope.launch {
             _uiStateStreamMsg.value = _uiStateStreamMsg.value.copy(
                 msg = _uiStateStreamMsg.value.msg.copy(
-                    uiMode = UiMode(
+                    uiMode =
                         if (_uiStateStreamMsg.value.msg.uiMode.id == PtzUiMode.Thermal.id) {
-                            PtzUiMode.RGB.id
+                            UiMode(PtzUiMode.RGB.id, PtzUiMode.RGB.displayName)
                         } else {
-                            PtzUiMode.Thermal.id
-                        },
-                        if (_uiStateStreamMsg.value.msg.uiMode.id == PtzUiMode.Thermal.id) {
-                            PtzUiMode.RGB.displayName
-                        } else {
-                            PtzUiMode.Thermal.displayName
+                            UiMode(PtzUiMode.Thermal.id, PtzUiMode.Thermal.displayName)
                         }
                     )
                 )

@@ -3,9 +3,9 @@
 package com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream
 
 import androidx.annotation.Keep
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.PercentOffset
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempSpotItem
-import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.TempZoneItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.PercentOffset
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.TempSpotItem
+import com.realityexpander.complexcomposeui.ui.ptzCamera.components.uiLayers.TempZoneItem
 import com.google.gson.annotations.SerializedName
 import timber.log.Timber
 
