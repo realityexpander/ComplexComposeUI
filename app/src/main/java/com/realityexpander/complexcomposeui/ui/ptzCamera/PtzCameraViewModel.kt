@@ -9,7 +9,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.UiMode
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.samplePtzUiStateStreamData
 import com.realityexpander.ui.neuralSpotlightPTZ.components.uiLayers.DirectionalPadDirection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -26,7 +26,7 @@ import java.util.Date
 
 class PtzCameraViewModel(application: Application) : AndroidViewModel(application) {
     private val _uiStateStreamMsg =
-        MutableStateFlow<PtzCameraUiStateStreamMsg>(sampleNSUiStateStreamData()) // Or observe from a repository
+        MutableStateFlow<PtzCameraUiStateStreamMsg>(samplePtzUiStateStreamData()) // Or observe from a repository
     val uiStateStreamMsg: StateFlow<PtzCameraUiStateStreamMsg> = _uiStateStreamMsg.asStateFlow()
 
     val ptzUiMode: StateFlow<PtzUiMode> = _uiStateStreamMsg.map { msg ->

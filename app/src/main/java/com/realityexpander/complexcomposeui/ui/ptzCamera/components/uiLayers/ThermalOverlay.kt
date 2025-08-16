@@ -24,7 +24,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempSpotElem
 import com.realityexpander.complexcomposeui.ui.ptzCamera.components.TempZoneElement
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.samplePtzUiStateStreamData
 
 data class TempSpotItem(
     val measurementId: String = "",
@@ -55,8 +55,8 @@ data class PercentOffset(
 )
 @Composable
 fun ThermalOverlayPreview(
-    tempSpots: List<TempSpotItem> = sampleNSUiStateStreamData().extractTempSpotItems(),
-    tempZones: List<TempZoneItem> = sampleNSUiStateStreamData().extractTempZoneItems(),
+    tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),
+    tempZones: List<TempZoneItem> = samplePtzUiStateStreamData().extractTempZoneItems(),
 ) {
     Column(
         modifier = Modifier.fillMaxSize()
@@ -72,8 +72,8 @@ fun ThermalOverlayPreview(
 @Composable
 fun ThermalOverlay(
     modifier: Modifier = Modifier,
-    tempSpots: List<TempSpotItem> = sampleNSUiStateStreamData().extractTempSpotItems(),
-    tempZones: List<TempZoneItem> = sampleNSUiStateStreamData().extractTempZoneItems(),
+    tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),
+    tempZones: List<TempZoneItem> = samplePtzUiStateStreamData().extractTempZoneItems(),
 ) {
     val configuration = LocalConfiguration.current
     val screenWidthDp = configuration.screenWidthDp.dp

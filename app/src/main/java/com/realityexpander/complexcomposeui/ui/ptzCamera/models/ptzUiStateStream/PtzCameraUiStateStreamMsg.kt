@@ -81,7 +81,7 @@ fun PtzCameraUiStateStreamMsg.extractTempSpotItems(): List<TempSpotItem> =
         )
     }
 
-fun sampleNSUiStateStreamData(): PtzCameraUiStateStreamMsg {
+fun samplePtzUiStateStreamData(): PtzCameraUiStateStreamMsg {
     return PtzCameraUiStateStreamMsg(
         hash = "test_hash",
         timestamp = "1729618583301",

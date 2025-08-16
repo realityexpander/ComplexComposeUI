@@ -19,7 +19,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.TempBar
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.samplePtzUiStateStreamData
 import com.realityexpander.complexcomposeui.ui.theme.LocalIsTablet
 import com.realityexpander.complexcomposeui.ui.theme.LocalOnErrorMessage
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
@@ -179,12 +179,12 @@ fun PTZ_Thermal_Phone(
 ) {
     PtzCameraUi(
         uiMode = PtzUiMode.Thermal,
-        tempBar = sampleNSUiStateStreamData().msg.tempBar,
+        tempBar = samplePtzUiStateStreamData().msg.tempBar,
         zoomPercentage = 65f,
-        topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-        topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
-        tempSpots = sampleNSUiStateStreamData().extractTempSpotItems(),
-        tempZones = sampleNSUiStateStreamData().extractTempZoneItems(),
+        topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+        topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
+        tempSpots = samplePtzUiStateStreamData().extractTempSpotItems(),
+        tempZones = samplePtzUiStateStreamData().extractTempZoneItems(),
         isPreviewImageVisible = true,
     )
 }
@@ -204,8 +204,8 @@ fun PTZ_RGB_Phone(
 ) {
     PtzCameraUi(
         uiMode = PtzUiMode.RGB,
-        topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-        topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
+        topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+        topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
         zoomPercentage = 65f,
         isPreviewImageVisible = true
     )
@@ -223,14 +223,14 @@ fun PTZ_RGB_Phone(
 fun PTZ_Thermal_Tablet() {
     PtzCameraUi(
         uiMode = PtzUiMode.Thermal,
-        tempBar = sampleNSUiStateStreamData().msg.tempBar,
+        tempBar = samplePtzUiStateStreamData().msg.tempBar,
         zoomPercentage = 65f,
-        topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-        topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
+        topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+        topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
         isPreviewImageVisible = true,
         isTablet = true,
-        tempSpots = sampleNSUiStateStreamData().extractTempSpotItems(),
-        tempZones = sampleNSUiStateStreamData().extractTempZoneItems(),
+        tempSpots = samplePtzUiStateStreamData().extractTempSpotItems(),
+        tempZones = samplePtzUiStateStreamData().extractTempZoneItems(),
     )
 }
 
@@ -244,8 +244,8 @@ fun PTZ_Thermal_Tablet() {
 fun PTZ_RGB_Tablet() {
     PtzCameraUi(
         uiMode = PtzUiMode.RGB,
-        topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-        topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
+        topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+        topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
         zoomPercentage = 65f,
         isPreviewImageVisible = true,
         isTablet = true

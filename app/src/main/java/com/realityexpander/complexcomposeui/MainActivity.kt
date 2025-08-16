@@ -30,7 +30,7 @@ import com.realityexpander.complexcomposeui.ui.ptzCamera.PtzCameraViewModel
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.PtzUiMode
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempSpotItems
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.extractTempZoneItems
-import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.sampleNSUiStateStreamData
+import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzUiStateStream.samplePtzUiStateStreamData
 import com.realityexpander.complexcomposeui.ui.theme.ComplexComposeUITheme
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 import kotlinx.coroutines.CoroutineScope
@@ -91,6 +91,7 @@ private fun CollectUiErrorMessages(
     viewModel: PtzCameraViewModel,
     scope: CoroutineScope,
     snackbarHostState: SnackbarHostState
+
 ) {
     // Collect error messages from ViewModel
     val errorMessage by viewModel.uiErrorMessages.collectAsState(null)
@@ -112,12 +113,12 @@ fun PTZ_RGB_Phone() {
     PtzCameraTheme {
         PtzCameraUi(
             uiMode = PtzUiMode.RGB,
-            tempBar = sampleNSUiStateStreamData().msg.tempBar,
+            tempBar = samplePtzUiStateStreamData().msg.tempBar,
             zoomPercentage = 65f,
-            topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-            topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
-            tempSpots = sampleNSUiStateStreamData().extractTempSpotItems(),
-            tempZones = sampleNSUiStateStreamData().extractTempZoneItems(),
+            topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+            topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
+            tempSpots = samplePtzUiStateStreamData().extractTempSpotItems(),
+            tempZones = samplePtzUiStateStreamData().extractTempZoneItems(),
             isPreviewImageVisible = true,
         )
     }
@@ -132,12 +133,12 @@ fun PTZ_Thermal_Phone(
     PtzCameraTheme {
         PtzCameraUi(
             uiMode = PtzUiMode.Thermal,
-            tempBar = sampleNSUiStateStreamData().msg.tempBar,
+            tempBar = samplePtzUiStateStreamData().msg.tempBar,
             zoomPercentage = 65f,
-            topLeftGauges = sampleNSUiStateStreamData().msg.topLeftGaugeBar,
-            topRightGauges = sampleNSUiStateStreamData().msg.topRightGaugeBar,
-            tempSpots = sampleNSUiStateStreamData().extractTempSpotItems(),
-            tempZones = sampleNSUiStateStreamData().extractTempZoneItems(),
+            topLeftGauges = samplePtzUiStateStreamData().msg.topLeftGaugeBar,
+            topRightGauges = samplePtzUiStateStreamData().msg.topRightGaugeBar,
+            tempSpots = samplePtzUiStateStreamData().extractTempSpotItems(),
+            tempZones = samplePtzUiStateStreamData().extractTempZoneItems(),
             isPreviewImageVisible = true,
         )
     }
