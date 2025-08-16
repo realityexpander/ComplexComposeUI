@@ -163,7 +163,7 @@ fun BottomRowControls(
                     ) {
                         CamText(
                             "MODE  ",
-                            color = MaterialTheme.colorScheme.primary,
+                            color = MaterialTheme.colorScheme.onPrimary.copy(.55f),
                             fontSize = MaterialTheme.typography.displaySmall.fontSize,
                             fontScale = fontScale,
                             textAlign = TextAlign.End,
