@@ -42,7 +42,7 @@ sealed class PtzUiMode(
 
     companion object Companion {
         fun fromIdStr(id: String): PtzUiMode {
-            // Get all the sealed subclasses of NSUiMode
+            // Get all the sealed subclasses of PtzUiMode
             val modes = PtzUiMode::class.sealedSubclasses.mapNotNull { it.objectInstance }
 
             return modes.find { it.id == id } ?: run {

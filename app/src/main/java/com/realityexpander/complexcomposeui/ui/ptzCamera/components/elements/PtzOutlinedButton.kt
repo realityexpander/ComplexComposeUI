@@ -28,7 +28,7 @@ import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
     backgroundColor = 0x777777,
 )
 @Composable
-fun NSOutlinedButtonPreview() {
+fun PtzOutlinedButtonPreview() {
     PtzCameraTheme {
         Column(
             verticalArrangement = Arrangement.SpaceAround,
