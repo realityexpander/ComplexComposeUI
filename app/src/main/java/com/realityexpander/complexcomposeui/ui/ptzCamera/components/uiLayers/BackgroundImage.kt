@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.realityexpander.complexcomposeui.R
 import com.realityexpander.complexcomposeui.ui.ptzCamera.models.ptzCameraUiStateStream.PtzUiMode
 
@@ -26,4 +27,16 @@ fun BackgroundImage(ptzUiMode: PtzUiMode) {
             contentScale = ContentScale.Crop
         )
     }
+}
+
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun BackgroundImageRGBPreview() {
+    BackgroundImage(PtzUiMode.RGB)
+}
+
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun BackgroundImageThermalPreview() {
+    BackgroundImage(PtzUiMode.Thermal)
 }
