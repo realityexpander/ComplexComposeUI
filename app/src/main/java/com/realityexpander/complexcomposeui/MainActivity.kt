@@ -94,7 +94,7 @@ private fun CollectSnackBarMessages(
     snackbarHostState: SnackbarHostState
 
 ) {
-    // Collect error messages from ViewModel
+    // Collect messages from ViewModel & display in SnackBars
     val snackBarMessage by viewModel.snackBarMessages.collectAsState(null)
     LaunchedEffect(snackBarMessage) {
         snackBarMessage?.let { message ->
