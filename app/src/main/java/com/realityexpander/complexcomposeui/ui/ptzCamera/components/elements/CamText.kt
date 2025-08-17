@@ -24,6 +24,49 @@ import androidx.compose.ui.unit.sp
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens
 import com.realityexpander.complexcomposeui.ui.theme.openSansFont
 
+@Composable
+fun CamText(
+    text: String = "Test String",
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onPrimary,
+    fontSize: TextUnit = MaterialTheme.typography.displaySmall.fontSize,
+    fontScale: Float = 1f,
+    textAlign: TextAlign = TextAlign.Center
+) {
+    Box(
+        modifier = Modifier
+    ) {
+        Text(
+            text,
+            modifier = modifier
+                .wrapContentHeight(unbounded = true)
+                .offset((1.5).dp, (1.5).dp),
+            style = TextStyle(
+                color = Color.Black.copy(alpha =.5f),
+                fontSize = fontSize.times(AppDimens.fontScale * fontScale),
+                fontFamily = openSansFont
+            ),
+            textAlign = textAlign,
+        )
+        Text(
+            text,
+            modifier = modifier
+                .wrapContentHeight(unbounded = true)
+            ,
+            style = TextStyle(
+                color = color,
+                fontSize = fontSize.times(AppDimens.fontScale * fontScale),
+                fontFamily = openSansFont
+            ),
+            textAlign = textAlign
+        )
+    }
+}
+
+////////////////////////////////////////////////////////////
+///////////////////// PREVIEWS /////////////////////////////
+////////////////////////////////////////////////////////////
+
 @Preview(
     showBackground = true,
     backgroundColor = 0x777777,
@@ -76,44 +119,5 @@ fun CamTextPreview() {
             fontScale = 0.8f
         )
         Spacer(modifier = Modifier.height(25.dp))
-    }
-}
-
-@Composable
-fun CamText(
-    text: String = "Test String",
-    modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.onPrimary,
-    fontSize: TextUnit = MaterialTheme.typography.displaySmall.fontSize,
-    fontScale: Float = 1f,
-    textAlign: TextAlign = TextAlign.Center
-) {
-    Box(
-        modifier = Modifier
-    ) {
-        Text(
-            text,
-            modifier = modifier
-                .wrapContentHeight(unbounded = true)
-                .offset((1.5).dp, (1.5).dp),
-            style = TextStyle(
-                color = Color.Black.copy(alpha =.5f),
-                fontSize = fontSize.times(AppDimens.fontScale * fontScale),
-                fontFamily = openSansFont
-            ),
-            textAlign = textAlign,
-        )
-        Text(
-            text,
-            modifier = modifier
-                .wrapContentHeight(unbounded = true)
-            ,
-            style = TextStyle(
-                color = color,
-                fontSize = fontSize.times(AppDimens.fontScale * fontScale),
-                fontFamily = openSansFont
-            ),
-            textAlign = textAlign
-        )
     }
 }

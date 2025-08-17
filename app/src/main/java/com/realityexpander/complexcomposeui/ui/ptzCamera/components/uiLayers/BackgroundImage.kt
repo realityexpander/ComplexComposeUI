@@ -23,11 +23,14 @@ fun BackgroundImage(ptzUiMode: PtzUiMode) {
             ),
             contentDescription = "Background Image",
             modifier = Modifier.fillMaxSize(),
-//            contentScale = ContentScale.FillBounds
             contentScale = ContentScale.Crop
         )
     }
 }
+
+////////////////////////////////////////////////////////////
+///////////////////// PREVIEWS /////////////////////////////
+////////////////////////////////////////////////////////////
 
 @Preview(device = "spec:parent=pixel_5,orientation=landscape")
 @Composable

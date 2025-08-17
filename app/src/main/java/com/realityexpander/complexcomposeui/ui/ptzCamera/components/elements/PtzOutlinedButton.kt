@@ -22,6 +22,68 @@ import androidx.compose.ui.unit.sp
 import com.realityexpander.complexcomposeui.ui.theme.AppDimens.roundedCornerSize
 import com.realityexpander.complexcomposeui.ui.theme.PtzCameraTheme
 
+@Composable
+fun PtzOutlinedSurface(
+    modifier: Modifier = Modifier,
+    outlineColor: Color = MaterialTheme.colorScheme.primary,
+    padding: Modifier = Modifier.padding(25.dp,10.dp),
+    shape: RoundedCornerShape? = null,
+    content: @Composable () -> Unit = { CamText() },
+) {
+    val localShape = shape ?:
+            RoundedCornerShape(roundedCornerSize, roundedCornerSize, roundedCornerSize, roundedCornerSize)
+
+    Surface(
+        modifier = modifier,
+        shape = localShape,
+        color = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.surface,
+        tonalElevation  = 0.dp,
+        shadowElevation = 0.dp,
+        border = BorderStroke(3.dp, outlineColor),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = padding
+        ) {
+            content()
+        }
+    }
+}
+
+@Composable
+fun PtzOutlinedButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
+    outlineColor: Color = MaterialTheme.colorScheme.primary,
+    enabled: Boolean = true,
+    shape: RoundedCornerShape? = null,
+    content: @Composable () -> Unit = { CamText() },
+) {
+    val localShape = shape ?:
+        RoundedCornerShape(roundedCornerSize, roundedCornerSize, roundedCornerSize, roundedCornerSize)
+
+    OutlinedButton(
+        modifier = modifier,
+        border = BorderStroke(1.dp, outlineColor),
+        shape = localShape,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.surface
+        ),
+        enabled = enabled,
+        onClick = onClick,
+    ) {
+        content()
+    }
+}
+
+////////////////////////////////////////////////////////////
+///////////////////// PREVIEWS /////////////////////////////
+////////////////////////////////////////////////////////////
+
+
 @Preview(
     device = "spec:width=380dp,height=640dp,dpi=240",
     showBackground = true,
@@ -84,63 +146,6 @@ fun PtzOutlinedButtonPreview() {
                 },
             )
         }
-    }
-}
-
-@Composable
-fun PtzOutlinedSurface(
-    modifier: Modifier = Modifier,
-    outlineColor: Color = MaterialTheme.colorScheme.primary,
-    padding: Modifier = Modifier.padding(25.dp,10.dp),
-    shape: RoundedCornerShape? = null,
-    content: @Composable () -> Unit = { CamText() },
-) {
-    val localShape = shape ?:
-            RoundedCornerShape(roundedCornerSize, roundedCornerSize, roundedCornerSize, roundedCornerSize)
-
-    Surface(
-        modifier = modifier,
-        shape = localShape,
-        color = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.surface,
-        tonalElevation  = 0.dp,
-        shadowElevation = 0.dp,
-        border = BorderStroke(3.dp, outlineColor),
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = padding
-        ) {
-            content()
-        }
-    }
-}
-
-@Composable
-fun PtzOutlinedButton(
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
-    outlineColor: Color = MaterialTheme.colorScheme.primary,
-    enabled: Boolean = true,
-    shape: RoundedCornerShape? = null,
-    content: @Composable () -> Unit = { CamText() },
-) {
-    val localShape = shape ?:
-        RoundedCornerShape(roundedCornerSize, roundedCornerSize, roundedCornerSize, roundedCornerSize)
-
-    OutlinedButton(
-        modifier = modifier,
-        border = BorderStroke(1.dp, outlineColor),
-        shape = localShape,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.surface
-        ),
-        enabled = enabled,
-        onClick = onClick,
-    ) {
-        content()
     }
 }
 

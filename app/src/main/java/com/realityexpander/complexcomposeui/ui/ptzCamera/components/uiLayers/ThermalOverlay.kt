@@ -47,24 +47,6 @@ data class PercentOffset(
     val yOffset: Float = 0f,
 )
 
-// Temp Measurement layer: TempSpots and TempZones
-@Preview(device = "spec:parent=pixel_5,orientation=landscape")
-@Composable
-fun ThermalOverlayPreview(
-    tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),
-    tempZones: List<TempZoneItem> = samplePtzUiStateStreamData().extractTempZoneItems(),
-) {
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        ThermalOverlay(
-            modifier = Modifier.fillMaxSize(),
-            tempSpots = tempSpots,
-            tempZones = tempZones,
-        )
-    }
-}
-
 @Composable
 fun ThermalOverlay(
     modifier: Modifier = Modifier,
@@ -117,4 +99,26 @@ fun ThermalOverlay(
                 )
             }
         }
+}
+
+////////////////////////////////////////////////////////////
+///////////////////// PREVIEWS /////////////////////////////
+////////////////////////////////////////////////////////////
+
+// Temp Measurement layer: TempSpots and TempZones
+@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Composable
+fun ThermalOverlayPreview(
+    tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),
+    tempZones: List<TempZoneItem> = samplePtzUiStateStreamData().extractTempZoneItems(),
+) {
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        ThermalOverlay(
+            modifier = Modifier.fillMaxSize(),
+            tempSpots = tempSpots,
+            tempZones = tempZones,
+        )
+    }
 }
