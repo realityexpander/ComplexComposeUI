@@ -6,11 +6,13 @@
 ## YouTube Explainer
 
 
+
 ## API's used
   - Compose
-  - CompositionLocal
+  - `CompositionLocal`
   - Window & Display Metrics handling
-  - ViewModel & Compose separation of concerns
-  - StateFlow & SharedFlow
+  - `ViewModel` & Compose separation of concerns
+  - `StateFlow` & `SharedFlow`
   - 30fps Animations
-  - 
+  - Layered Approach
+  - `ConstraintLayout` & `constraintAs`
