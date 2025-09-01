@@ -14,7 +14,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.realityexpander.complexcomposeui.R
 
 @Composable
@@ -24,6 +23,8 @@ fun PtzCameraTheme(
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
+    val dynamicColor = false
+
     val darkColorScheme = darkColorScheme(
         primary = colorResource(R.color.primaryColor),
         secondary = colorResource(R.color.colorAccent),
