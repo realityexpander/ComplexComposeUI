@@ -106,7 +106,9 @@ fun ThermalOverlay(
 ////////////////////////////////////////////////////////////
 
 // Temp Measurement layer: TempSpots and TempZones
-@Preview(device = "spec:parent=pixel_5,orientation=landscape")
+@Preview(device = "spec:parent=pixel_5,orientation=landscape", backgroundColor = 0xFF797979,
+    showBackground = true
+)
 @Composable
 fun ThermalOverlayPreview(
     tempSpots: List<TempSpotItem> = samplePtzUiStateStreamData().extractTempSpotItems(),
